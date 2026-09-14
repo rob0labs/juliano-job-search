@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Juliano Job Board</title>
+<style>
+  :root{
+    --bg:#fbfbfa; --surface:#ffffff; --line:#e8e6e1; --line-soft:#f0eeea;
+    --ink:#1f1e1c; --ink-2:#57544e; --ink-3:#8b877f;
+    --a:#1a7f52; --a-bg:#e8f4ed; --b:#2563a8; --b-bg:#e8effa;
+    --c:#8a6d1f; --c-bg:#f7f0dd; --x:#9b3b3b; --x-bg:#f9ebeb;
+    --accent:#1f1e1c;
+    --radius:12px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#161613; --surface:#1e1e1b; --line:#33322e; --line-soft:#272623;
+      --ink:#f2f0ec; --ink-2:#b4b0a8; --ink-3:#807c74;
+      --a:#5ec08c; --a-bg:#16301f; --b:#7aa9e6; --b-bg:#16243a;
+      --c:#d6b45c; --c-bg:#302711; --x:#e08383; --x-bg:#331b1b;
+      --accent:#f2f0ec;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#161613; --surface:#1e1e1b; --line:#33322e; --line-soft:#272623;
+    --ink:#f2f0ec; --ink-2:#b4b0a8; --ink-3:#807c74;
+    --a:#5ec08c; --a-bg:#16301f; --b:#7aa9e6; --b-bg:#16243a;
+    --c:#d6b45c; --c-bg:#302711; --x:#e08383; --x-bg:#331b1b;
+    --accent:#f2f0ec;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:880px; margin:0 auto; padding-block:40px 72px; padding-left:20px; padding-right:20px}
+
+  header h1{font-size:26px; letter-spacing:-.02em; margin:0 0 6px}
+  header p{margin:0; color:var(--ink-2); font-size:14px}
+  .meta{margin-top:18px; display:flex; flex-wrap:wrap; gap:8px 18px; font-size:12.5px; color:var(--ink-3)}
+  .meta b{color:var(--ink-2); font-weight:600}
+
+  .divider{height:1px; background:var(--line); margin:28px 0 22px; border:0}
+
+  .filters{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:24px}
+  .filters button{
+    font:inherit; font-size:13px; cursor:pointer; padding:6px 13px; border-radius:999px;
+    border:1px solid var(--line); background:var(--surface); color:var(--ink-2); transition:.12s;
+  }
+  .filters button:hover{border-color:var(--ink-3)}
+  .filters button[aria-pressed="true"]{background:var(--accent); color:var(--bg); border-color:var(--accent)}
+
+  .sect{font-size:12px; text-transform:uppercase; letter-spacing:.09em; color:var(--ink-3); margin:30px 0 12px; font-weight:600}
+  .sect:first-of-type{margin-top:0}
+
+  .card{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    padding:18px 18px 16px; margin-bottom:10px;
+  }
+  .card.dim{opacity:.62}
+  .row1{display:flex; align-items:flex-start; gap:12px; flex-wrap:wrap}
+  .pill{
+    flex:none; font-size:11px; font-weight:700; letter-spacing:.04em;
+    padding:3px 9px; border-radius:6px; margin-top:2px;
+  }
+  .pill.A{color:var(--a); background:var(--a-bg)}
+  .pill.B{color:var(--b); background:var(--b-bg)}
+  .pill.C{color:var(--c); background:var(--c-bg)}
+  .pill.X{color:var(--x); background:var(--x-bg)}
+  .titlebox{flex:1 1 260px; min-width:0}
+  .titlebox h3{margin:0; font-size:16px; line-height:1.35; letter-spacing:-.01em}
+  .titlebox h3 a{color:inherit; text-decoration:none; border-bottom:1px solid var(--line)}
+  .titlebox h3 a:hover{border-bottom-color:var(--ink-3)}
+  .co{margin:3px 0 0; font-size:13.5px; color:var(--ink-2)}
+  .tags{display:flex; flex-wrap:wrap; gap:6px; margin-top:11px}
+  .tag{font-size:11.5px; color:var(--ink-3); border:1px solid var(--line-soft); background:var(--bg); padding:2px 8px; border-radius:5px}
+  .tag.dream{color:var(--c); border-color:var(--c-bg); background:var(--c-bg); font-weight:600}
+  .note{margin:11px 0 0; font-size:13.5px; color:var(--ink-2)}
+  .note.warn{color:var(--x)}
+
+  .empty{color:var(--ink-3); font-size:14px; padding:20px 0}
+
+  footer{margin-top:44px; padding-top:20px; border-top:1px solid var(--line); font-size:12.5px; color:var(--ink-3)}
+  footer p{margin:0 0 7px}
+  a{color:inherit}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Job board: Juliano Lorenzino</h1>
+  <p>Insights, innovation and strategy roles. Denmark plus fully remote. Rescanned every Thursday.</p>
+  <div class="meta" id="meta"></div>
+</header>
+
+<hr class="divider">
+
+<div class="filters" id="filters">
+  <button data-f="all" aria-pressed="true">All</button>
+  <button data-f="A" aria-pressed="false">A only</button>
+  <button data-f="AB" aria-pressed="false">A + B</button>
+  <button data-f="cph" aria-pressed="false">Copenhagen</button>
+  <button data-f="dream" aria-pressed="false">Dream companies</button>
+</div>
+
+<div id="list"></div>
+
+<footer>
+  <p><b>Excluded by rule:</b> tobacco (Scandinavian Tobacco Group), roles requiring fluent Danish, dead links.</p>
+  <p>Built for Juliano by Robert. Questions or a role you want filtered out, just say so and the next scan learns it.</p>
+</footer>
+
+</div>
+
+<script>
+const SCAN_META = {
+  lastScan: "2026-09-14",
+  nextScan: "2026-09-17",
+  totalScraped: 193,
+  shortlisted: 11,
+  verified: 9,
+  excluded: 3,
+  sources: ["LinkedIn","Indeed","Web search","Company career pages"]
+};
+
+const JOBS = [
+  {
+    id:"tryg-strategy-innovation-hub-consultant", grade:"A", scanDate:"2026-09-14",
+    title:"Strategy & Innovation Hub Consultant", company:"Tryg",
+    location:"Ballerup", work:"Hybrid", posted:"14 Sep 2026", source:"LinkedIn",
+    url:"https://dk.linkedin.com/jobs/view/strategy-innovation-hub-consultant-at-tryg-4464767927",
+    dream:false, verified:true,
+    note:"Closest single match on the board: strategy and innovation sitting together in one hub, inside a large matrix organisation, at exactly your level. Posted today, so you are inside your own 3-day window."
+  },
+  {
+    id:"pandora-senior-manager-strategy-delivery-office", grade:"A", scanDate:"2026-09-14",
+    title:"Senior Manager, Strategy Delivery Office", company:"Pandora",
+    location:"Copenhagen", work:"On-site", posted:"10 Sep 2026", source:"LinkedIn",
+    url:"https://dk.linkedin.com/jobs/view/senior-manager-strategy-delivery-office-at-pandora-4463049048",
+    dream:false, verified:true,
+    note:"You are already inside the building on secondment. Warmest route on the board, and it converts the consultant role into a permanent client-side strategy seat."
+  },
+  {
+    id:"orsted-strategy-manager", grade:"A", scanDate:"2026-09-14",
+    title:"Strategy Manager", company:"Ørsted",
+    location:"Gentofte", work:"On-site", posted:"1 Sep 2026", source:"LinkedIn",
+    url:"https://dk.linkedin.com/jobs/view/strategy-manager-at-%C3%B8rsted-4460280587",
+    dream:true, verified:true,
+    note:"Dream company. Corporate strategy in a matrix organisation, which is the second of your two stated tracks. Over 100 people have clicked apply, so move fast."
+  },
+  {
+    id:"akqa-senior-brand-strategist", grade:"A", scanDate:"2026-09-14",
+    title:"Senior Brand Strategist", company:"AKQA",
+    location:"Copenhagen", work:"Hybrid", posted:"7 Sep 2026", source:"LinkedIn",
+    url:"https://dk.linkedin.com/jobs/view/senior-brand-strategist-at-akqa-4464358235",
+    dream:false, verified:true,
+    note:"Agency-side strategy, which is the lineage you already have from FCB, R/GA and Mano. Pampers Brand Compass is the case study to lead with here."
+  },
+  {
+    id:"ogilvy-dk-senior-engagement-strategist", grade:"A", scanDate:"2026-09-14",
+    title:"Senior Engagement Strategist (English speaking)", company:"Ogilvy Danmark",
+    location:"Copenhagen", work:"On-site", posted:"11 Sep 2026", source:"LinkedIn",
+    url:"https://dk.linkedin.com/jobs/view/senior-engagement-strategist-english-speaking-at-ogilvy-danmark-4463966211",
+    dream:false, verified:true,
+    note:"Explicitly English-speaking, which removes the Danish barrier that quietly kills a lot of Copenhagen listings for you. Strategy role in a network agency."
+  },
+  {
+    id:"demant-manager-group-services-transformation", grade:"B", scanDate:"2026-09-14",
+    title:"Manager, Group Services Transformation - Executive Office & Corporate Strategy", company:"Demant",
+    location:"Copenhagen", work:"Hybrid", posted:"1 Sep 2026", source:"LinkedIn",
+    url:"https://dk.linkedin.com/jobs/view/manager-group-services-transformation-executive-office-corporate-strategy-at-demant-4460250891",
+    dream:false, verified:true,
+    note:"Transformation work reporting into the executive office, which matches your board-facing NIVEA track. Gap: likely more operating-model and process than consumer insight."
+  },
+  {
+    id:"wbd-operations-strategy-manager-nordics", grade:"B", scanDate:"2026-09-14",
+    title:"Operations & Strategy Manager, Nordics & Benelux (Maternity Cover)", company:"Warner Bros. Discovery",
+    location:"Copenhagen", work:"On-site", posted:"10 Sep 2026", source:"LinkedIn",
+    url:"https://dk.linkedin.com/jobs/view/operations-strategy-manager-nordics-benelux-maternity-cover-at-warner-bros-discovery-4465809668",
+    dream:false, verified:true,
+    note:"You started at Warner Media and the Ipsos role was a maternity cover too, so both the company and the contract shape are familiar. Gap: fixed term, and heavier on operations than insight."
+  },
+  {
+    id:"lego-senior-director-strategy-partner-cco", grade:"B", scanDate:"2026-09-14",
+    title:"Senior Director, Strategy Partner to the Chief Commercial Officer", company:"the LEGO Group",
+    location:"Copenhagen", work:"Hybrid", posted:"8 Sep 2026", source:"LinkedIn",
+    url:"https://dk.linkedin.com/jobs/view/senior-director-strategy-partner-to-the-chief-commercial-officer-at-the-lego-group-4442804329",
+    dream:true, verified:true,
+    note:"Dream company, in Copenhagen rather than Billund, and C-level facing. Gap: Senior Director is a level above what you said you are targeting, and they will likely want a top-tier consulting or corporate strategy track record."
+  },
+  {
+    id:"sos-international-strategy-manager", grade:"B", scanDate:"2026-09-14",
+    title:"Strategy Manager", company:"SOS International",
+    location:"Copenhagen", work:"On-site", posted:"11 Sep 2026", source:"LinkedIn",
+    url:"https://dk.linkedin.com/jobs/view/strategy-manager-at-sos-international-4466383808",
+    dream:false, verified:true,
+    note:"Clean corporate strategy role at your level in central Copenhagen. Gap: assistance and insurance, which is not on your sector list, so the consumer angle is weaker."
+  },
+  {
+    id:"arla-commercial-innovation-manager", grade:"B", scanDate:"2026-09-14",
+    title:"Commercial Innovation Manager", company:"Arla Foods",
+    location:"Aarhus", work:"On-site", posted:"2 Sep 2026", source:"LinkedIn",
+    url:"https://dk.linkedin.com/jobs/view/commercial-innovation-manager-aarhus-at-arla-foods-4459981626",
+    dream:false, verified:true,
+    note:"FMCG innovation, dead centre of your NIVEA and Carlsberg experience. Gap: Aarhus and on-site, so this one only works if you would relocate or commute."
+  },
+  {
+    id:"lego-brand-strategist-game", grade:"B", scanDate:"2026-09-14",
+    title:"Brand Strategist, GAME", company:"the LEGO Group",
+    location:"Billund", work:"On-site", posted:"4 Sep 2026", source:"LinkedIn",
+    url:"https://dk.linkedin.com/jobs/view/brand-strategist-game-at-the-lego-group-4461127893",
+    dream:true, verified:true,
+    note:"Dream company and squarely in the kids and family space you have said you care about, after Oreo, Pampers, Nestlé and Cartoon Network. Gap: Billund, and the title reads a notch below senior."
+  },
+  {
+    id:"cph-airports-senior-innovation-manager", grade:"X", scanDate:"2026-09-14",
+    title:"Senior Innovation Manager", company:"Københavns Lufthavne",
+    location:"Copenhagen Airport", work:"On-site", posted:"1 Sep 2026", source:"Indeed",
+    url:"https://jobs.cph.dk/job/K%C3%B8benhavns-Lufthavn-Senior-Innovation-Manager/1432420533/",
+    dream:false, verified:true,
+    note:"Excluded: the posting requires fluent Danish and English. Left on the board so you can overrule it if you want to apply anyway. Deadline 21 September."
+  },
+  {
+    id:"lego-head-of-insights-analytics-education", grade:"X", scanDate:"2026-09-14",
+    title:"Head of Insights & Analytics, LEGO Education", company:"the LEGO Group",
+    location:"Billund", work:"", posted:"", source:"Web search",
+    url:"", dream:true, verified:true,
+    note:"Excluded: dead link. The page returns 404, so the role has been pulled or filled. Worth watching for a repost given it is the single best title match on your list."
+  },
+  {
+    id:"stg-global-brand-manager", grade:"X", scanDate:"2026-09-14",
+    title:"Global Brand Manager and Business Development Manager (2 roles)", company:"Scandinavian Tobacco Group",
+    location:"Copenhagen", work:"", posted:"Sep 2026", source:"LinkedIn",
+    url:"", dream:false, verified:false,
+    note:"Excluded: tobacco, which you listed as a dealbreaker. Noted here only so you know the filter is working."
+  }
+];
+
+const esc = (s)=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function renderMeta(){
+  const m = SCAN_META;
+  document.getElementById('meta').innerHTML =
+    `<span><b>Last scan</b> ${m.lastScan}</span>`+
+    `<span><b>Next scan</b> Thursday ${m.nextScan}</span>`+
+    `<span><b>${m.totalScraped}</b> listings scanned</span>`+
+    `<span><b>${m.verified}</b> verified live</span>`+
+    `<span><b>${m.excluded}</b> excluded</span>`;
+}
+
+function cardHTML(j){
+  const dead = j.grade === 'X';
+  const tags = [];
+  tags.push(`<span class="tag">${esc(j.location)}</span>`);
+  if(j.work) tags.push(`<span class="tag">${esc(j.work)}</span>`);
+  if(j.posted) tags.push(`<span class="tag">Posted ${esc(j.posted)}</span>`);
+  tags.push(`<span class="tag">${esc(j.source)}</span>`);
+  if(j.dream) tags.push(`<span class="tag dream">Dream company</span>`);
+  const title = j.url
+    ? `<a href="${esc(j.url)}" target="_blank" rel="noopener">${esc(j.title)}</a>`
+    : esc(j.title);
+  return `<article class="card${dead?' dim':''}">
+    <div class="row1">
+      <span class="pill ${j.grade}">${dead?'OUT':j.grade}</span>
+      <div class="titlebox">
+        <h3>${title}</h3>
+        <p class="co">${esc(j.company)}</p>
+      </div>
+    </div>
+    <div class="tags">${tags.join('')}</div>
+    <p class="note${dead?' warn':''}">${esc(j.note)}</p>
+  </article>`;
+}
+
+const CPH = ['Copenhagen','Ballerup','Gentofte','Copenhagen Airport'];
+function passes(j, f){
+  if(f==='all') return true;
+  if(f==='A') return j.grade==='A';
+  if(f==='AB') return j.grade==='A'||j.grade==='B';
+  if(f==='cph') return CPH.some(c=>j.location.indexOf(c)===0);
+  if(f==='dream') return !!j.dream;
+  return true;
+}
+
+const SECTIONS = [
+  {key:'A', label:'Apply now'},
+  {key:'B', label:'Strong, worth a look'},
+  {key:'X', label:'Excluded this scan'}
+];
+
+function render(f){
+  const list = document.getElementById('list');
+  const shown = JOBS.filter(j=>passes(j,f));
+  if(!shown.length){ list.innerHTML = '<p class="empty">Nothing matches that filter in this scan.</p>'; return; }
+  let html = '';
+  for(const s of SECTIONS){
+    const group = shown.filter(j=>j.grade===s.key);
+    if(!group.length) continue;
+    html += `<p class="sect">${s.label} (${group.length})</p>` + group.map(cardHTML).join('');
+  }
+  list.innerHTML = html;
+}
+
+document.getElementById('filters').addEventListener('click', e=>{
+  const b = e.target.closest('button'); if(!b) return;
+  for(const btn of document.querySelectorAll('#filters button')) btn.setAttribute('aria-pressed', String(btn===b));
+  render(b.dataset.f);
+});
+
+renderMeta();
+render('all');
+</script>
+</body>
+</html>
