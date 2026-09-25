@@ -120,23 +120,23 @@
 
 <script>
 const SCAN_META = {
-  lastScan: "2026-09-18",
-  nextScan: "2026-09-24",
-  totalScraped: 296,
-  shortlisted: 21,
-  verified: 13,
-  excluded: 9,
+  lastScan: "2026-09-25",
+  nextScan: "2026-10-01",
+  totalScraped: 282,
+  shortlisted: 14,
+  verified: 14,
+  excluded: 11,
   sources: ["LinkedIn","Indeed","Web search","Company career pages"]
 };
 
 const JOBS = [
   {
-    id:"novo-nordisk-global-customer-insights-lead", grade:"A", scanDate:"2026-09-18",
-    title:"Global Customer Insights Lead", company:"Novo Nordisk",
-    location:"Gladsaxe", work:"On-site", posted:"15 Sep 2026", source:"LinkedIn",
-    url:"https://dk.linkedin.com/jobs/view/global-customer-insights-lead-at-novo-nordisk-4465550656",
+    id:"novo-nordisk-sr-manager-commercial-insights-analytics", grade:"A", scanDate:"2026-09-25",
+    title:"Sr Manager Commercial Insights & Analytics", company:"Novo Nordisk",
+    location:"Copenhagen", work:"On-site", posted:"18 Sep 2026", source:"LinkedIn",
+    url:"https://dk.linkedin.com/jobs/view/sr-manager-commercial-insights-analytics-at-novo-nordisk-4466689828",
     dream:false, verified:true,
-    note:"Best match this board has produced. It asks for exactly what you do: leading both qualitative and quantitative programmes globally, feeding the brand strategy process, and putting recommendations in front of senior management. English only, no Danish. Deadline is 22 September, so this one is urgent. Lead with the 200+ participant 4-market Pandora study and the Carlsberg 8-market work at Ipsos."
+    note:"Top pick this week and the deadline is 2 October, so it is the one to do first. You would own the consumer insight agenda for the whole Danish affiliate, lead a team of five, and run the forums that turn evidence into decisions, which is your insight-to-decision framework work described almost word for word. English only, no Danish, and the posted range of DKK 742,560 to 1,091,600 sits well above your floor. One caveat, stated plainly: the wording leans more analytics than most of your recent work, so use the Ipsos credentials and the Pandora 4-market study to prove you carry both qual and quant."
   },
   {
     id:"pandora-senior-manager-strategy-delivery-office", grade:"A", scanDate:"2026-09-14",
@@ -144,15 +144,7 @@ const JOBS = [
     location:"Copenhagen", work:"On-site", posted:"10 Sep 2026", source:"LinkedIn",
     url:"https://dk.linkedin.com/jobs/view/senior-manager-strategy-delivery-office-at-pandora-4463049048",
     dream:false, verified:true,
-    note:"Still live. You are already inside the building on secondment, so this is the warmest route on the board, and it converts the consultant role into a permanent client-side strategy seat."
-  },
-  {
-    id:"orsted-strategy-manager", grade:"A", scanDate:"2026-09-14",
-    title:"Strategy Manager", company:"Ørsted",
-    location:"Gentofte", work:"On-site", posted:"1 Sep 2026", source:"LinkedIn",
-    url:"https://dk.linkedin.com/jobs/view/strategy-manager-at-%C3%B8rsted-4460280587",
-    dream:true, verified:true,
-    note:"Still live after two weeks, which is longer than these usually last. Dream company, corporate strategy in a matrix organisation, which is the second of your two tracks. Over 100 people have clicked apply."
+    note:"Still live, now three weeks old. You are already inside the building on secondment, so this is the warmest route on the board, and it converts the consultant role into a permanent client-side strategy seat. If you want it, this is the week to move."
   },
   {
     id:"akqa-senior-brand-strategist", grade:"A", scanDate:"2026-09-14",
@@ -163,12 +155,28 @@ const JOBS = [
     note:"Still live. Agency-side strategy, the lineage you already have from FCB, R/GA and MANO. Pampers Brand Compass is the case study to lead with here."
   },
   {
+    id:"orsted-lead-business-performance-manager", grade:"B", scanDate:"2026-09-25",
+    title:"Lead Business Performance Manager", company:"Ørsted",
+    location:"Gentofte", work:"On-site", posted:"24 Sep 2026", source:"Company career page",
+    url:"https://orsted.dk/karriere/ledige-stillinger/2026/09/32797-lead-business-performance-manager",
+    dream:true, verified:true,
+    note:"Posted yesterday, so you are inside your own three-day window, and it is a dream company with the deadline on 8 October. English throughout, no Danish, Gentofte, and the job is consolidating messy cross-functional data into recommendations senior leaders actually decide on. The honest gap: this is performance management and portfolio governance, not consumer insight, so it is a B on domain and only reaches this high because it is Ørsted."
+  },
+  {
+    id:"aak-innovation-project-portfolio-manager", grade:"B", scanDate:"2026-09-25",
+    title:"Innovation Project & Portfolio Manager", company:"AAK",
+    location:"Aarhus", work:"On-site", posted:"24 Sep 2026", source:"LinkedIn",
+    url:"https://dk.linkedin.com/jobs/view/innovation-project-portfolio-manager-at-aak-4460966962",
+    dream:false, verified:true,
+    note:"Reposted yesterday. Food ingredients innovation across a 25-country matrix, English only, and they want exactly the thing you do with early-stage innovation and business cases. Two catches worth knowing before you spend the evening on it: LinkedIn says Aarhus but the body says the seat is at the Malmö head office, which is a 35 minute train from you rather than a move, and the role is weighted towards stage-gate governance and portfolio hygiene more than towards generating the insight."
+  },
+  {
     id:"matas-head-in-house-brands-skin-hair", grade:"B", scanDate:"2026-09-18",
     title:"Head of In-House Brands, Skin & Hair", company:"Matas Group",
     location:"Allerød", work:"Hybrid", posted:"14 Sep 2026", source:"LinkedIn",
     url:"https://dk.linkedin.com/jobs/view/head-of-in-house-brands-skin-hair-at-matas-group-4465766148",
     dream:false, verified:true,
-    note:"Beauty and personal care, Nordic scope, Head level, posting in English with no Danish requirement. Your NIVEA and Beiersdorf innovation lab years are the whole pitch. Gap to be honest about: this is a P&L and people leadership job with four direct reports, more category and portfolio ownership than insight work."
+    note:"Still live, 86 clicks. Beauty and personal care, Nordic scope, Head level, posting in English with no Danish requirement. Your NIVEA and Beiersdorf innovation lab years are the whole pitch. Gap to be honest about: this is a P&L and people leadership job with four direct reports, more category and portfolio ownership than insight work."
   },
   {
     id:"demant-strategy-project-manager", grade:"B", scanDate:"2026-09-18",
@@ -176,7 +184,7 @@ const JOBS = [
     location:"Copenhagen", work:"Hybrid", posted:"17 Sep 2026", source:"LinkedIn",
     url:"https://dk.linkedin.com/jobs/view/strategy-project-manager-at-demant-4467514011",
     dream:false, verified:true,
-    note:"Posted yesterday, so you are inside your own 3-day window. Strategy plus transformation plus facilitation plus executive storytelling, in a 25+ market matrix business, and they ask for the application in English. Gap: they write 3 to 5 years of experience, and you have 15, so frame the seniority deliberately. Deadline 30 September."
+    note:"Still live but the deadline is 30 September, so this closes in five days. Strategy plus transformation plus facilitation plus executive storytelling, in a 25+ market matrix business, application in English. Gap: they write 3 to 5 years of experience, and you have 15, so frame the seniority deliberately."
   },
   {
     id:"velux-strategy-manager-group-strategy-ma", grade:"B", scanDate:"2026-09-18",
@@ -184,7 +192,7 @@ const JOBS = [
     location:"Hørsholm", work:"", posted:"15 Sep 2026", source:"Indeed",
     url:"https://velux.wd3.myworkdayjobs.com/en-US/Velux_Residential/job/dalsvej-99-Hrsholm/Strategy-Manager--Group-Strategy---M-A_R1070964",
     dream:false, verified:true,
-    note:"Internal consulting team reporting to the VP, working across the whole value chain. Explicitly fluent English, no Danish. Gaps: Hørsholm rather than central Copenhagen, building products rather than consumer, and they anchor on 2 to 5 years from a strategy house."
+    note:"Still live, interviews on a rolling basis. Internal consulting team reporting to the VP, working across the whole value chain. Explicitly fluent English, no Danish. Gaps: Hørsholm rather than central Copenhagen, building products rather than consumer, and they anchor on 2 to 5 years from a strategy house."
   },
   {
     id:"lego-senior-manager-global-brand-operations", grade:"B", scanDate:"2026-09-18",
@@ -192,7 +200,7 @@ const JOBS = [
     location:"Copenhagen", work:"Hybrid", posted:"18 Sep 2026", source:"LinkedIn",
     url:"https://dk.linkedin.com/jobs/view/senior-manager-global-brand-operations-at-the-lego-group-4466640669",
     dream:true, verified:true,
-    note:"Posted four hours before this scan, Billund or Copenhagen, and almost nobody has seen it yet. Dream company and a senior seat advising the Global Brand Development leadership team. Gap, stated plainly: this is operating model, governance and portfolio delivery, not consumer insight. Apply if you want the LEGO door open more than you want the exact job."
+    note:"Still live a week on, though it has now passed 100 clicks. Dream company and a senior seat advising the Global Brand Development leadership team. Gap, stated plainly: this is operating model, governance and portfolio delivery, not consumer insight. Apply if you want the LEGO door open more than you want the exact job."
   },
   {
     id:"lego-associate-manager-insights-analytics", grade:"B", scanDate:"2026-09-18",
@@ -200,7 +208,7 @@ const JOBS = [
     location:"Copenhagen", work:"Hybrid", posted:"15 Sep 2026", source:"LinkedIn",
     url:"https://dk.linkedin.com/jobs/view/associate-manager-insights-analytics-at-the-lego-group-4465918680",
     dream:true, verified:true,
-    note:"Dream company and the title reads right, but read the body before you spend a day on it: this is corporate communications analytics, social listening and dashboards in Sprinklr and Brandwatch, not consumer insight feeding innovation. Associate Manager is also a notch below your level. Over 100 have already applied."
+    note:"Still live and now marked actively reviewing applicants, which means the window is closing. Dream company and the title reads right, but the body is corporate communications analytics, social listening and dashboards in Sprinklr and Brandwatch, not consumer insight feeding innovation. Associate Manager is also a notch below your level."
   },
   {
     id:"lego-senior-director-strategy-partner-cco", grade:"B", scanDate:"2026-09-14",
@@ -208,7 +216,7 @@ const JOBS = [
     location:"Copenhagen", work:"Hybrid", posted:"8 Sep 2026", source:"LinkedIn",
     url:"https://dk.linkedin.com/jobs/view/senior-director-strategy-partner-to-the-chief-commercial-officer-at-the-lego-group-4442804329",
     dream:true, verified:true,
-    note:"Reposted and still live. Dream company, Copenhagen rather than Billund, C-level facing. Gap unchanged: Senior Director is a level above what you said you are targeting, and they will likely want a top-tier consulting track record."
+    note:"Reposted again and still live, which for a role this senior usually means they have not found the profile yet. Dream company, Copenhagen rather than Billund, C-level facing. Gap unchanged: Senior Director is a level above what you said you are targeting, and they will likely want a top-tier consulting track record."
   },
   {
     id:"wbd-operations-strategy-manager-nordics", grade:"B", scanDate:"2026-09-14",
@@ -219,88 +227,97 @@ const JOBS = [
     note:"Still live. You started at Warner Media and the Ipsos role was a maternity cover too, so both the company and the contract shape are familiar. Gap: fixed term, and heavier on operations than insight."
   },
   {
-    id:"arla-commercial-innovation-manager", grade:"B", scanDate:"2026-09-14",
-    title:"Commercial Innovation Manager", company:"Arla Foods",
-    location:"Aarhus", work:"On-site", posted:"2 Sep 2026", source:"LinkedIn",
-    url:"https://dk.linkedin.com/jobs/view/commercial-innovation-manager-aarhus-at-arla-foods-4459981626",
-    dream:false, verified:true,
-    note:"Still live, 89 clicks. FMCG innovation, dead centre of your NIVEA and Carlsberg experience. Gap: Aarhus and on-site, so this only works if you would relocate or commute."
-  },
-  {
     id:"tryg-strategy-innovation-hub-consultant", grade:"C", scanDate:"2026-09-18",
     title:"Strategy & Innovation Hub Consultant", company:"Tryg",
     location:"Ballerup", work:"Hybrid", posted:"14 Sep 2026", source:"LinkedIn",
     url:"https://dk.linkedin.com/jobs/view/strategy-innovation-hub-consultant-at-tryg-4464767927",
     dream:false, verified:true,
-    note:"Correction from last week, when this was graded A on the title alone. The full body is written entirely in Danish, and the hub sits inside Procurement: sourcing strategy, OKRs and benefit realisation, not consumer innovation. Still live and still a real strategy seat, so it stays on the board, but it is a C. Deadline 28 September."
+    note:"Still live, deadline 28 September. Stays a C for the reason given last week: the full body is written in Danish and the hub sits inside Procurement, so it is sourcing strategy, OKRs and benefit realisation, not consumer innovation."
   },
   {
-    id:"ogilvy-dk-senior-engagement-strategist", grade:"X", scanDate:"2026-09-18",
-    title:"Senior Engagement Strategist (English speaking)", company:"Ogilvy Danmark",
-    location:"Copenhagen", work:"On-site", posted:"11 Sep 2026", source:"LinkedIn",
-    url:"https://dk.linkedin.com/jobs/view/senior-engagement-strategist-english-speaking-at-ogilvy-danmark-4463966211",
+    id:"valcon-associate-partner-strategy-transformation", grade:"C", scanDate:"2026-09-25",
+    title:"Associate Partner and Competence Team Lead, Strategy & Transformation", company:"Valcon",
+    location:"Copenhagen", work:"On-site", posted:"23 Sep 2026", source:"LinkedIn",
+    url:"https://dk.linkedin.com/jobs/view/associate-partner-and-competence-team-lead-strategy-transformation-copenhagen-at-valcon-4461778093",
     dream:false, verified:true,
-    note:"Correction from last week. The English-speaking flag is real, but the body asks you to read and interpret clinical trial data and to know FDA and OPDP promotional regulation, and it prefers a native English speaker. That is a pharma medical communications specialist, not a consumer strategist."
+    note:"Listed as a C because it is a real reach rather than a mismatch. English fluent with Danish only a plus, central Copenhagen, and strategy and transformation delivery is your ground. The stretch is the shape of the job: you would lead 20 consultants and carry a commercial growth target, which is a partner track rather than a practitioner seat. Deadline 30 September, so decide quickly if it appeals."
   },
   {
-    id:"gnosis-lesaffre-global-consumer-insights-manager", grade:"X", scanDate:"2026-09-18",
-    title:"Global Consumer Insights Manager", company:"Gnosis by Lesaffre",
+    id:"novo-nordisk-global-customer-insights-lead", grade:"X", scanDate:"2026-09-25",
+    title:"Global Customer Insights Lead", company:"Novo Nordisk",
+    location:"Gladsaxe", work:"On-site", posted:"15 Sep 2026", source:"LinkedIn",
+    url:"", dream:false, verified:true,
+    note:"Closed. This was last week's top pick and the deadline was 22 September, so it has gone as expected. The good news is that Novo has opened the Commercial Insights & Analytics role at the top of this board, which is arguably the better seat anyway."
+  },
+  {
+    id:"orsted-strategy-manager", grade:"X", scanDate:"2026-09-25",
+    title:"Strategy Manager", company:"Ørsted",
+    location:"Gentofte", work:"On-site", posted:"1 Sep 2026", source:"LinkedIn",
+    url:"", dream:true, verified:true,
+    note:"Closed, now reading not currently accepting applications after three weeks live. Ørsted has replaced it with the Lead Business Performance Manager role above."
+  },
+  {
+    id:"arla-commercial-innovation-manager", grade:"X", scanDate:"2026-09-25",
+    title:"Commercial Innovation Manager", company:"Arla Foods",
+    location:"Aarhus", work:"On-site", posted:"2 Sep 2026", source:"LinkedIn",
+    url:"", dream:false, verified:true,
+    note:"Correction, and an apology: this sat on the board as a B for two weeks and it should not have. Arla reposted it this week and the requirements list ends with fluent in Danish and English. Still live, but it is a hard no on language."
+  },
+  {
+    id:"lego-senior-manager-global-insights", grade:"X", scanDate:"2026-09-25",
+    title:"Senior Manager, Global Insights", company:"the LEGO Group",
+    location:"Billund", work:"", posted:"", source:"Web search",
+    url:"", dream:true, verified:true,
+    note:"Excluded: dead, and this one was painful. Perfect title, dream company, no Danish requirement, and it still sits high in search results with the full job text cached. Opening the real page returns a 404. It would have been the top pick of the week."
+  },
+  {
+    id:"tryg-strategic-transformation-manager-cfo", grade:"X", scanDate:"2026-09-25",
+    title:"Strategic Transformation Manager, CFO Area", company:"Tryg",
+    location:"Ballerup", work:"", posted:"22 Sep 2026", source:"LinkedIn",
+    url:"", dream:false, verified:true,
+    note:"Excluded on language. Posting is in English end to end, which is exactly the trap, and then the requirements ask you to be fluent in a Scandinavian language plus English. Otherwise a strong strategy and transformation seat."
+  },
+  {
+    id:"pandora-manager-rgm-insights-intelligence", grade:"X", scanDate:"2026-09-25",
+    title:"Manager, RGM - Insights & Intelligence", company:"Pandora",
     location:"Copenhagen", work:"", posted:"18 Sep 2026", source:"LinkedIn",
-    url:"https://dk.linkedin.com/jobs/view/global-consumer-insights-manager-at-gnosis-by-lesaffre-4466644878",
-    dream:false, verified:true,
-    note:"Excluded: perfect title, wrong job. It is a pure quantitative role, asking for a degree in Statistics, Mathematics, Econometrics or Quantitative Psychology plus segmentation and statistical modelling. Nothing qualitative in it."
+    url:"", dream:false, verified:true,
+    note:"Excluded: the word Insights in the title is doing a lot of work. It is revenue growth management, and the requirements are Alteryx, ETL pipelines, Power BI and pricing modelling. Pure quantitative, so it is out by your own rule."
   },
   {
-    id:"7eleven-innovation-partnerships-manager", grade:"X", scanDate:"2026-09-18",
-    title:"Innovation & Partnerships Manager", company:"7-Eleven Danmark",
-    location:"Søborg", work:"", posted:"16 Sep 2026", source:"LinkedIn",
-    url:"https://dk.linkedin.com/jobs/view/innovation-partnerships-manager-at-7-eleven-danmark-4467740617",
-    dream:false, verified:true,
-    note:"Excluded on language. Posting is Danish end to end and the core of the job is Danish PR and press work with a Danish agency, plus a Danish start-up and retailer network. Say the word and I will list it anyway next time."
+    id:"ogilvy-dk-senior-engagement-strategist-repost", grade:"X", scanDate:"2026-09-25",
+    title:"Senior Engagement Strategist (English speaking)", company:"Ogilvy Danmark",
+    location:"Copenhagen", work:"On-site", posted:"22 Sep 2026", source:"LinkedIn",
+    url:"", dream:false, verified:true,
+    note:"Reposted under a new listing and excluded again for the same reason as last week: the body asks you to read and interpret clinical trial data and to know FDA and OPDP promotional regulation, and it prefers a native English speaker. Pharma medical communications, not consumer strategy."
   },
   {
-    id:"dept-senior-digital-commerce-strategist", grade:"X", scanDate:"2026-09-18",
-    title:"Senior Digital Commerce Strategist (Dutch or Danish speaking)", company:"DEPT",
-    location:"Copenhagen", work:"", posted:"17 Sep 2026", source:"LinkedIn",
-    url:"https://dk.linkedin.com/jobs/view/senior-digital-commerce-strategist-dutch-or-danish-speaking-at-dept%C2%AE-4312039272",
-    dream:false, verified:true,
-    note:"Excluded on language, and this one says it in the job title, which is rare and helpful."
+    id:"carlsberg-global-manager-portfolio-analytics", grade:"X", scanDate:"2026-09-25",
+    title:"Global Manager, Portfolio Analytics", company:"Carlsberg",
+    location:"Copenhagen", work:"", posted:"", source:"Web search",
+    url:"", dream:true, verified:true,
+    note:"Excluded: the page now says the position has been filled. Worth noting that Carlsberg is hiring in the portfolio and insight space at all, given your 8-market How We Socialize Today study for them at Ipsos."
   },
   {
-    id:"pmi-brand-marketing-senior-specialist", grade:"X", scanDate:"2026-09-18",
-    title:"Brand Marketing Senior Specialist", company:"Philip Morris International",
-    location:"Copenhagen", work:"", posted:"17 Sep 2026", source:"LinkedIn",
-    url:"", dream:false, verified:false,
-    note:"Excluded: tobacco, which you named as a dealbreaker. Noted only so you can see the filter working."
+    id:"miro-go-to-market-lead-engage", grade:"X", scanDate:"2026-09-25",
+    title:"Go-to-Market Lead, Miro Engage", company:"Miro",
+    location:"Copenhagen", work:"Remote", posted:"", source:"Web search",
+    url:"", dream:true, verified:true,
+    note:"Excluded: removed from the Miro careers site. Checked because Miro is on your dream list, and nothing else there this week was insight or strategy shaped."
   },
   {
-    id:"orsted-lead-innovation-manager", grade:"X", scanDate:"2026-09-18",
+    id:"sos-international-strategy-manager", grade:"X", scanDate:"2026-09-25",
+    title:"Strategy Manager", company:"SOS International",
+    location:"Copenhagen", work:"On-site", posted:"23 Sep 2026", source:"LinkedIn",
+    url:"", dream:false, verified:true,
+    note:"Reposted this week and excluded again. Written entirely in Danish, the application is asked for in Danish, and the job is facilitating strategy workshops with a Danish executive team."
+  },
+  {
+    id:"orsted-lead-innovation-manager", grade:"X", scanDate:"2026-09-25",
     title:"Lead Innovation Manager", company:"Ørsted",
     location:"Gentofte", work:"", posted:"", source:"Web search",
     url:"", dream:true, verified:true,
-    note:"Excluded: dead. Still sitting high in search results, but the page now says the position is no longer available. Classic stale index, which is why nothing reaches you unverified."
-  },
-  {
-    id:"demant-manager-group-services-transformation", grade:"X", scanDate:"2026-09-18",
-    title:"Manager, Group Services Transformation - Executive Office & Corporate Strategy", company:"Demant",
-    location:"Copenhagen", work:"Hybrid", posted:"1 Sep 2026", source:"LinkedIn",
-    url:"", dream:false, verified:true,
-    note:"Closed since last week: the listing now reads not currently accepting applications. Demant is clearly hiring in this space though, see the Strategy Project Manager above."
-  },
-  {
-    id:"lego-brand-strategist-game", grade:"X", scanDate:"2026-09-18",
-    title:"Brand Strategist, GAME", company:"the LEGO Group",
-    location:"Billund", work:"Hybrid", posted:"4 Sep 2026", source:"LinkedIn",
-    url:"", dream:true, verified:true,
-    note:"Closed since last week, not currently accepting applications. Two fresh LEGO roles replaced it above."
-  },
-  {
-    id:"sos-international-strategy-manager", grade:"X", scanDate:"2026-09-18",
-    title:"Strategy Manager", company:"SOS International",
-    location:"Copenhagen", work:"On-site", posted:"11 Sep 2026", source:"LinkedIn",
-    url:"https://dk.linkedin.com/jobs/view/strategy-manager-at-sos-international-4466383808",
-    dream:false, verified:true,
-    note:"Re-graded down after reading the body properly. Written entirely in Danish, the application is asked for in Danish, and the job is facilitating strategy workshops with a Danish executive team. Live, but the language risk is high enough that it is not worth your week."
+    note:"Excluded: still dead, and still sitting near the top of search results a week later. The page returns gone. Listed once more only so you know it has been checked twice."
   }
 ];
 
